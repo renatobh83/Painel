@@ -1,11 +1,15 @@
-import { Link } from "react-router-dom";
 import { Dash } from "../components/Dash";
 import { Header } from "../components/Header";
 export function Home() {
   return (
-    <div className="text-zinc-50 flex min-h-screen w-screen flex-col">
+    <div className="text-zinc-50 flex flex-col min-h-screen">
       <Header />
-      <Dash />
+      <main className="flex flex-1">
+        <Dash />
+        <aside className="w-[348px] bg-gray-700 p-6 border-gray-600">
+          ....
+        </aside>
+      </main>
     </div>
   );
 }
