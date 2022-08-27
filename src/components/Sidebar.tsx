@@ -1,14 +1,16 @@
 import axios from "axios";
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 export function Sidebar() {
-  const [dataOfApi, setDataOfApi] = useState("");
+  const [dataOfApi, setDataOfApi] = useState<{ items: any[] }>(null);
   const searchRef = useRef<HTMLInputElement>(null);
   const handleSearch = async () => {
     const { data } = await axios.get(
       `http://localhost:3333?q=${searchRef.current.value}`
     );
     setDataOfApi(data);
+    console.log(data);
   };
   return (
     <>
@@ -23,7 +25,15 @@ export function Sidebar() {
         />
         <button onClick={handleSearch}> Busca</button>
       </div>
-      <div>{JSON.stringify({ dataOfApi }, null, 2)}</div>
+      {dataOfApi &&
+        dataOfApi.items.map((item) => (
+          <div
+            key={item.etag}
+            className="flex flex-col text-sm gap-2 py-3 mt-3 "
+          >
+            <Link to={`/video/${item.id.videoId}`}>{item.snippet.title}</Link>
+          </div>
+        ))}
     </>
   );
 }

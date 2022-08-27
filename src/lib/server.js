@@ -7,13 +7,14 @@ async function createServer() {
   app.use(express.json());
   app.use(cors());
   const URL = "https://www.googleapis.com/youtube/v3/search";
+
   app.get("/", async (request, response) => {
     const pesquisa = request.query.q;
 
     const { data } = await axios.get(
-      `${URL}?q=${pesquisa}&part=snippet&key=AIzaSyDt7j3PKw0pTz2uO7-5-ZjM63JuJgYDVwA`
+      `${URL}?maxResults=10&q=${pesquisa}&part=snippet&key=AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8`
     );
-    // console.log(res.data);
+
     response.json(data);
   });
 

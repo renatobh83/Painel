@@ -7,6 +7,8 @@ export function Router() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/video/:slug" element={<Home />} />
+
       <Route path="/about" element={<About />} />
     </Routes>
   );

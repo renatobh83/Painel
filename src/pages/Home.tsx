@@ -7,9 +7,11 @@ export function Home() {
       <Header />
       <main className="flex flex-1 flex-col 800:flex-row">
         <Dash />
-        <div className="p-5">
-          <aside className="lg:w-[348px] 800:w-[200px] w-full bg-gray-700 p-6 border-gray-600 h-[80vh] ">
-            <Sidebar />
+        <div className="overflow-y-auto">
+          <aside className="lg:w-[348px] 800:w-[200px] w-full border-gray-600 h-[80vh] ">
+            <div className="bg-gray-700 p-5">
+              <Sidebar />
+            </div>
           </aside>
         </div>
       </main>
