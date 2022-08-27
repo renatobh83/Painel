@@ -10,14 +10,13 @@ export function Sidebar() {
       `http://localhost:3333?q=${searchRef.current.value}`
     );
     setDataOfApi(data);
-    console.log(data);
   };
   return (
     <>
       <div className="flex gap-2">
         <input
           ref={searchRef}
-          className="p-2 text-g9 rounded outline-orange-200 border-none"
+          className="p-2 text-g9 rounded"
           type="search"
           name="youtube"
           id="youtube"
